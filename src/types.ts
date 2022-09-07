@@ -10,5 +10,6 @@ export interface InputProps {
 }
 
 export interface UsersListProps {
-  users: Array<string>;
+  results: Array<string>;
+  filter: string
 }
