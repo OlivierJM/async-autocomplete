@@ -1,13 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
 import './App.css';
+import InputField from './components/InputField';
 
 function App() {
+  const [filter, setFilter] = useState<string>("")
   return (
     <div className="App">
       <main className="App-main">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <InputField filter={filter} setFilter={setFilter} />
       </main>
     </div>
   );

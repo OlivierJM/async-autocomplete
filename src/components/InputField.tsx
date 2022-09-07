@@ -1,20 +1,19 @@
-import { ReactNode } from 'react';
+import { ChangeEvent } from 'react';
 import { InputProps } from '../types';
 
-const InputField = ({ searchFilter, filter }: InputProps): ReactNode => {
+const InputField = ({ setFilter, filter }: InputProps) => {
   return (
     <input
       type="search"
-      placeholder="type your search here"
-      onChange={searchFilter}
+      placeholder="Type your search here"
+      onChange={(event: ChangeEvent<HTMLInputElement>) => setFilter(event.target.value)}
       value={filter}
       style={{
-        marginLeft: '40%',
-        border: '1px gray solid',
         borderRadius: 10,
         padding: 10,
-        width: '100%',
-        fontSize: 20,
+        width: '40%',
+        height: 80,
+        fontSize: 24,
       }}
     />
   );

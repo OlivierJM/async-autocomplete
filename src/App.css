@@ -12,3 +12,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+input[type='text'] {
+  font-size: 34px;
+}
