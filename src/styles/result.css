@@ -1,13 +1,13 @@
 /* We could better name this class */
-.todo-item {
+.item {
   font-size: 1.2em;
   margin-left: 5%;
 }
 
-.todo-item-status:hover {
+.item-status:hover {
     cursor: pointer;
 }
 
-.todo-item-container {
+.item-container {
   padding-top: 1.4%;
 }

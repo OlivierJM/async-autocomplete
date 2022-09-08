@@ -1,13 +1,27 @@
 import { HighlightedTextProps } from '../types';
 
-const HighlightedText = ({ text, match, handleAutoComplete }: HighlightedTextProps) => {
+const HighlightedText = ({
+  text,
+  match,
+  handleAutoComplete,
+}: HighlightedTextProps) => {
   const words = text.split(new RegExp(`(${match})`, 'gi'));
 
   return (
-    <p className="todo-item todo-item-status" onClick={() => handleAutoComplete(text)}>
-      {words.map((word: string) =>
-        word.toLowerCase() === match.toLowerCase() ? <mark>{word}</mark> : word
-      )}
+    <p
+      className="item item-status"
+      onClick={() => handleAutoComplete(text)}
+      data-testid="item"
+    >
+      {words.map((word: string, index) => (
+        <span key={`${word}-${index}`}>
+          {word.toLowerCase() === match.toLowerCase() ? (
+            <mark data-testid="marked-word">{word}</mark>
+          ) : (
+            word
+          )}
+        </span>
+      ))}
     </p>
   );
 };

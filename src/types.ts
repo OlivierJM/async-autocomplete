@@ -10,16 +10,16 @@ export interface InputProps {
   setFilter: (value: string) => void;
   filter: string;
 }
-
-export interface TodoListProps extends AutoCompleteProps {
-  results?: TodoProps[];
-  filter: string;
-  autoCompleted: boolean;
-}
-
-export interface TodoProps {
+export interface ResultProps {
   userId: number;
   id: number;
   title: string;
   completed: boolean;
 }
+
+export interface ResultListProps extends AutoCompleteProps {
+  results?: ResultProps[];
+  filter?: string;
+  autoCompleted: boolean;
+}
+

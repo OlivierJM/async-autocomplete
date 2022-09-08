@@ -1,19 +1,19 @@
 // https://jsonplaceholder.typicode.com/todos?q="some query"
 
 import { useEffect, useRef, useState } from 'react';
-import { TodoProps } from '../types';
+import { ResultProps } from '../types';
 
 type ErrorType = string | null;
 
 interface State {
-  data?: TodoProps[];
+  data?: ResultProps[];
   error?: Error | ErrorType;
   loading: boolean;
 }
 
 export function useFetch(url: string, filter: string, autoCompleted: boolean): State {
-  const [data, setData] = useState<TodoProps[]>([]);
-  const [error, setError] = useState<string | null>('null');
+  const [data, setData] = useState<ResultProps[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const requestStatus = useRef<boolean>(false);
 

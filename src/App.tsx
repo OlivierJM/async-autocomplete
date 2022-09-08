@@ -32,7 +32,7 @@ function App() {
       <AutoCompleteInputField filter={filter} setFilter={handleInput} />
       <br />
       {loading ? (
-        <span className="todo-item">Loading ....</span>
+        <span className="item" data-testid="loading-indicator">Loading ....</span>
       ) : (
         <ResultsList
           results={!autoCompleted ? data : []}
@@ -43,7 +43,7 @@ function App() {
       )}
 
       <footer>
-        <p>
+        <p data-testid="api-note">
           <b>Note: </b>We are querying an API from here{' '}
           <a
             href="https://jsonplaceholder.typicode.com/todos"
