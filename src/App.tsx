@@ -1,29 +1,45 @@
 import { useState } from 'react';
-import InputField from './components/SearchInput';
+import AutoCompleteInputField from './components/AutoCompleteInput';
 import ResultsList from './components/ResultsList';
 import { useFetch } from './hooks/use-fetch';
 import useDebounceValue from './hooks/use-debounced-value';
-import './styles/App.css';
 import { todoUrl } from './constants';
-
+import './styles/App.css';
 
 function App() {
   const [filter, setFilter] = useState<string>('');
+  const [autoCompleted, setAutoCompleted] = useState<boolean>(false);
   const debouncedValue: string = useDebounceValue<string>(filter, 500);
   const { data, loading } = useFetch(
     `${todoUrl}${debouncedValue}`,
-    debouncedValue
+    debouncedValue,
+    autoCompleted
   );
+
+  const handleAutoComplete = (text: string) => {
+    setAutoCompleted(true);
+    setFilter(text);
+  };
+
+  const handleInput = (value: string) => {
+    setFilter(value);
+    setAutoCompleted(false);
+  };
 
   return (
     <div className="app-wrapper">
-      <h1 className="title">Search for Todos</h1>
-      <InputField filter={filter} setFilter={setFilter} />
+      <h1 className="title">Auto Complete for Todos</h1>
+      <AutoCompleteInputField filter={filter} setFilter={handleInput} />
       <br />
       {loading ? (
         <span className="todo-item">Loading ....</span>
       ) : (
-        <ResultsList results={data} filter={debouncedValue} />
+        <ResultsList
+          results={!autoCompleted ? data : []}
+          filter={debouncedValue}
+          handleAutoComplete={handleAutoComplete}
+          autoCompleted={autoCompleted}
+        />
       )}
 
       <footer>
@@ -37,7 +53,7 @@ function App() {
             https://jsonplaceholder.typicode.com/todos
           </a>
         </p>
-        </footer>
+      </footer>
     </div>
   );
 }

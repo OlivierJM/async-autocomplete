@@ -11,7 +11,7 @@ interface State {
   loading: boolean;
 }
 
-export function useFetch(url: string, filter: string): State {
+export function useFetch(url: string, filter: string, autoCompleted: boolean): State {
   const [data, setData] = useState<TodoProps[]>([]);
   const [error, setError] = useState<string | null>('null');
   const [loading, setLoading] = useState<boolean>(false);
@@ -19,7 +19,7 @@ export function useFetch(url: string, filter: string): State {
 
   // We could implement some cache to avoid fetch same data twice
   useEffect(() => {
-    if (!url || !filter) return;
+    if (!url || !filter || autoCompleted) return;
     requestStatus.current = false;
     const fetchData = async () => {
       setLoading(true);
@@ -38,6 +38,6 @@ export function useFetch(url: string, filter: string): State {
     return () => {
       requestStatus.current = true;
     };
-  }, [url, filter]);
+  }, [url, filter, autoCompleted]);
   return { data, error, loading };
 }

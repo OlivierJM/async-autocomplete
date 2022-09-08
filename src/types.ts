@@ -1,4 +1,7 @@
-export interface HighlightedTextProps {
+interface AutoCompleteProps {
+  handleAutoComplete: (text: string) => void;
+}
+export interface HighlightedTextProps extends AutoCompleteProps {
   text: string;
   match: string;
 }
@@ -8,9 +11,10 @@ export interface InputProps {
   filter: string;
 }
 
-export interface UsersListProps {
+export interface TodoListProps extends AutoCompleteProps {
   results?: TodoProps[];
   filter: string;
+  autoCompleted: boolean;
 }
 
 export interface TodoProps {

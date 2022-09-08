@@ -4,6 +4,10 @@
   margin-left: 5%;
 }
 
+.todo-item-status:hover {
+    cursor: pointer;
+}
+
 .todo-item-container {
   padding-top: 1.4%;
 }
