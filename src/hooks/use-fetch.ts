@@ -1,17 +1,11 @@
-// https://jsonplaceholder.typicode.com/todos?q="some query"
-
 import { useEffect, useRef, useState } from 'react';
-import { ResultProps } from '../types';
+import { DataProps, ResultProps } from '../types';
 
-type ErrorType = string | null;
-
-interface State {
-  data?: ResultProps[];
-  error?: Error | ErrorType;
-  loading: boolean;
-}
-
-export function useFetch(url: string, filter: string, autoCompleted: boolean): State {
+export function useFetch(
+  url: string,
+  filter: string,
+  autoCompleted: boolean
+): DataProps {
   const [data, setData] = useState<ResultProps[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);

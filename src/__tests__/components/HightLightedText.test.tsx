@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import HighlightedText from '../../components/HightLightedText';
 
-
 describe('HighLighted Text Component', () => {
   const props = {
     text: 'Some random text',

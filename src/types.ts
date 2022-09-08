@@ -23,3 +23,10 @@ export interface ResultListProps extends AutoCompleteProps {
   autoCompleted: boolean;
 }
 
+type ErrorType = string | null;
+
+export interface DataProps {
+  data?: ResultProps[];
+  error?: Error | ErrorType;
+  loading: boolean;
+}
