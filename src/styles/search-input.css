@@ -1,0 +1,25 @@
+.search-container {
+  width: 100%;
+  padding: 0 5%;
+  padding-top: 0;
+}
+
+.search-container-input {
+  width: 100%;
+  padding: 1.5%;
+  border-radius: 5px;
+  border: solid 1px white;
+  background-color: rgba(255, 255, 255, 0.13);
+  color: white;
+  font-size: 1em;
+}
+
+.search-container-input:focus {
+  border: solid 1px aquamarine;
+}
+
+@media only screen and (max-width: 480px) {
+  .search-container-input {
+    padding: 5%;
+  }
+}

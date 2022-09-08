@@ -1,0 +1,9 @@
+/* We could better name this class */
+.todo-item {
+  font-size: 1.2em;
+  margin-left: 5%;
+}
+
+.todo-item-container {
+  padding-top: 1.4%;
+}

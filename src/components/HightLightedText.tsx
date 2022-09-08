@@ -1,23 +1,19 @@
 import { HighlightedTextProps } from "../types";
 
-const HighlightedText = ({ username, match }: HighlightedTextProps) => {
-  const parts = username.split(new RegExp(`(${match})`, 'gi'));
+const HighlightedText = ({ text, match }: HighlightedTextProps) => {
+  const parts = text.split(new RegExp(`(${match})`, 'gi'));
   return (
-    <span>
+    <p className="todo-item">
       {parts.map((part: string) =>
         part.toLowerCase() === match.toLowerCase() ? (
-          <span
-            style={{
-              backgroundColor: 'salmon',
-            }}
-          >
+          <mark>
             {part}
-          </span>
+          </mark>
         ) : (
           part
         )
       )}
-    </span>
+    </p>
   );
 };
 

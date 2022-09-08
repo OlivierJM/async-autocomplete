@@ -1,6 +1,5 @@
-
 export interface HighlightedTextProps {
-  username: string;
+  text: string;
   match: string;
 }
 
@@ -10,6 +9,13 @@ export interface InputProps {
 }
 
 export interface UsersListProps {
-  results: Array<string>;
-  filter: string
+  results?: TodoProps[];
+  filter: string;
+}
+
+export interface TodoProps {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }

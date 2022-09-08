@@ -1,0 +1,29 @@
+input[type='text'] {
+  font-size: 34px;
+}
+
+.app-wrapper {
+  width: 70%;
+  margin: auto;
+  color: white;
+  height: min-content;
+  padding-bottom: 5%;
+}
+
+.title {
+  text-align: center;
+  padding: 5% 5% 0 5%;
+}
+
+@media only screen and (max-width: 880px) {
+  .app-wrapper {
+    width: 90%;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.2em;
+  margin-left: 5%;
+}
