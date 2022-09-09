@@ -1,11 +1,22 @@
 ## Async AutoCompletion
-## Available Scripts
 
-In the project directory, you can run:
+> If you want to quickly check this, [demo is here](https://async-autocomplete.vercel.app)
+
+To get started, clone this repo
+
+`git clone https://github.com/OlivierJM/async-autocomplete.git`
+
+ Install all dependencies
+
+`cd async-autocomplete`
+
+`npm install`
+
+Run the app
 
 `npm start`
 
-Runs the app in the development mode.\
+This Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
@@ -14,10 +25,12 @@ You will also see any lint errors in the console.
 `npm test`
 
 Launches the test runner in the interactive watch mode.\
-
-`npm run build`
-
+Additionally, you can run `npm run test -- --coverage .` to see code coverage
 
 ### Improvements
 
-There are a few optimizations that can be done with this implementation
+- cache data and return cached data when the query hasn't changed
+- support multiple autocompletion text
+- package this in a way that it can easily be used by other engineers
+- use Context API instead of prop drilling e.g: when handling autocompleting from child to parent component
+- better usage of mocks for test files
