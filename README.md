@@ -34,3 +34,5 @@ Additionally, you can run `npm run test -- --coverage .` to see code coverage
 - package this in a way that it can easily be used by other engineers
 - use Context API instead of prop drilling e.g: when handling autocompleting from child to parent component
 - better usage of mocks for test files
+
+**Note:** There is one extra dev dependency, to make it easier to test hooks
