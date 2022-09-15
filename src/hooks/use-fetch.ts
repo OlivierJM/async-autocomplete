@@ -10,7 +10,6 @@ export function useFetch(
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const requestStatus = useRef<boolean>(false);
-
   // We could implement some cache to avoid fetch same data twice
   useEffect(() => {
     if (!url || !filter || autoCompleted) return;
@@ -22,9 +21,9 @@ export function useFetch(
         const result = await fetch(url);
         const json = await result.json();
         setData(json);
-        setLoading(false);
       } catch (err: any) {
         setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
