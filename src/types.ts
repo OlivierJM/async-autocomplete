@@ -30,3 +30,6 @@ export interface DataProps {
   error?: Error | ErrorType;
   loading: boolean;
 }
+
+
+export type CacheType = {[url: string]: ResultProps[]}

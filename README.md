@@ -29,9 +29,9 @@ Additionally, you can run `npm run test -- --coverage .` to see code coverage
 
 ### Improvements
 
-- cache data and return cached data when the query hasn't changed
+- <del>cache data and return cached data when the query hasn't changed
 - support multiple autocompletion text
-- package this in a way that it can easily be used by other engineers
+- <del>package this in a way that it can easily be used by other engineers
 - use Context API instead of prop drilling e.g: when handling autocompleting from child to parent component
 - better usage of mocks for test files
 

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { DataProps, ResultProps } from '../types';
+import { DataProps, ResultProps, CacheType } from '../types';
+
+
 
 export function useFetch(
   url: string,
@@ -9,17 +11,20 @@ export function useFetch(
   const [data, setData] = useState<ResultProps[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const requestStatus = useRef<boolean>(false);
+  const cache = useRef<CacheType>({})
   // We could implement some cache to avoid fetch same data twice
   useEffect(() => {
     if (!url || !filter || autoCompleted) return;
-    requestStatus.current = false;
     const fetchData = async () => {
+      if (cache.current[url]) {
+        setData(cache.current[url]);
+        return
+      }
       setLoading(true);
       try {
-        if (requestStatus.current) return;
         const result = await fetch(url);
         const json = await result.json();
+        cache.current[url] = json
         setData(json);
       } catch (err: any) {
         setError(err.message);
@@ -28,9 +33,6 @@ export function useFetch(
       }
     };
     fetchData();
-    return () => {
-      requestStatus.current = true;
-    };
   }, [url, filter, autoCompleted]);
   return { data, error, loading };
 }
